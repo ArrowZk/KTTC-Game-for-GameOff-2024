@@ -1,0 +1,29 @@
+~ intro
+Elena: Must get to the shop quickly!
+do GLOBAL.can_walk = true
+=> END
+~ blocked_path
+do GLOBAL.can_walk = false
+do GLOBAL.dont_move = true
+do GLOBAL.can_jump = false
+Elena: Seriously? They had to close this street today of all days...
+Elena: Well, if I can’t go through here, I’ll find another way. Grandpa always said, ‘Think outside the box, Elena.’
+do GLOBAL.dont_move = false
+do GLOBAL.can_walk = true
+do GLOBAL.can_jump = true
+=> END
+~ door_locked
+Elena: Looks like I need the key...
+=> END
+~ in_the_shop
+do GLOBAL.can_walk = false
+do GLOBAL.dont_move = true
+do GLOBAL.can_jump = false
+Caspian: Elena, it’s good to see you. I’m sorry to call you here like this, but I couldn’t send this by mail. It’s too special.
+Elena: What are you talking about, Caspian?
+Caspian (handing her the watch): This watch belonged to your grandfather. He said only you would understand its true purpose. But be careful, Elena. Your grandfather... kept secrets that many would want to uncover.
+do GLOBAL.can_change_dimentions = true
+Elena (examining the watch): What kind of secrets? And why does this feel heavier than it should?
+Caspian: Some questions have answers you might wish you’d never learned. But if you choose to search for them, be prepared.
+do get_tree().change_scene_to_file("res://scenes/gui/LevelEnd.tscn")
+=> END

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://thebvnvitpk1"]
+
+[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="1_ab7a2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_651nu"]
+size = Vector2(32, 36)
+
+[node name="Checkpoint" type="Area2D"]
+collision_layer = 128
+script = ExtResource("1_ab7a2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_651nu")
+debug_color = Color(0.955307, 1.73271e-06, 0.543896, 0.42)

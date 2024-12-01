@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk7v0yfn11tmh"]
+
+[ext_resource type="Script" path="res://scripts/throwable_item.gd" id="1_hw7ot"]
+[ext_resource type="Texture2D" uid="uid://bcsxugt6v5ikd" path="res://images/elements/Throwable_blue.png" id="2_a4jyc"]
+[ext_resource type="AudioStream" uid="uid://di2nvx8jas68y" path="res://audio/Retro PickUp 18.wav" id="3_88ysn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlq37"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktdgm"]
+
+[node name="ThrowableItem" type="RigidBody2D" groups=["Throwable"]]
+collision_layer = 2
+collision_mask = 15
+script = ExtResource("1_hw7ot")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_a4jyc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nlq37")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ktdgm")
+debug_color = Color(0.227402, 0.634341, 0.204375, 0.42)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_88ysn")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

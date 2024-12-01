@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://3l31la5qll74"]
+
+[ext_resource type="Script" path="res://scripts/gui.gd" id="1_i4hma"]
+[ext_resource type="Texture2D" uid="uid://b1fyfsswkyd30" path="res://images/UI/circleprogressbar_under.png" id="2_bavrg"]
+[ext_resource type="Theme" uid="uid://f1j8x4xbp5xn" path="res://themes/new_theme.tres" id="2_g6dqx"]
+[ext_resource type="Texture2D" uid="uid://c7hxupbg0jhag" path="res://images/UI/circleprogressbar_progress.png" id="3_r21o5"]
+[ext_resource type="Texture2D" uid="uid://cys51th4pbha0" path="res://images/UI/hearth.png" id="3_ylcdl"]
+[ext_resource type="Texture2D" uid="uid://db7tga73uph4a" path="res://images/UI/Reloj_BLUE.png" id="4_vt4kv"]
+[ext_resource type="Texture2D" uid="uid://b2plgoo5yf01i" path="res://images/UI/Stamina_blue.png" id="7_k08x0"]
+
+[node name="Gui" type="CanvasLayer"]
+script = ExtResource("1_i4hma")
+
+[node name="StatusContainer" type="MarginContainer" parent="."]
+offset_right = 200.0
+offset_bottom = 59.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatusContainer"]
+layout_mode = 2
+
+[node name="ClockContainer" type="PanelContainer" parent="StatusContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="CircularProgressContainer" type="HBoxContainer" parent="StatusContainer/HBoxContainer/ClockContainer"]
+layout_mode = 2
+
+[node name="CircularProgressBar" type="TextureProgressBar" parent="StatusContainer/HBoxContainer/ClockContainer/CircularProgressContainer"]
+layout_mode = 2
+value = 100.0
+fill_mode = 4
+texture_under = ExtResource("2_bavrg")
+texture_progress = ExtResource("3_r21o5")
+
+[node name="CircularImage" type="TextureRect" parent="StatusContainer/HBoxContainer/ClockContainer/CircularProgressContainer/CircularProgressBar"]
+layout_mode = 2
+offset_left = 19.0
+offset_top = 17.0
+offset_right = 169.0
+offset_bottom = 167.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_vt4kv")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BarsContainer" type="PanelContainer" parent="StatusContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="StatusBars" type="VBoxContainer" parent="StatusContainer/HBoxContainer/BarsContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatusContainer/HBoxContainer/BarsContainer/StatusBars"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="StatusContainer/HBoxContainer/BarsContainer/StatusBars/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_g6dqx")
+texture = ExtResource("3_ylcdl")
+expand_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="StatusContainer/HBoxContainer/BarsContainer/StatusBars/HBoxContainer"]
+custom_minimum_size = Vector2(400, 20)
+layout_mode = 2
+theme = ExtResource("2_g6dqx")
+value = 100.0
+show_percentage = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="StatusContainer/HBoxContainer/BarsContainer/StatusBars"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="StatusContainer/HBoxContainer/BarsContainer/StatusBars/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("7_k08x0")
+expand_mode = 2
+
+[node name="StaminaBar" type="ProgressBar" parent="StatusContainer/HBoxContainer/BarsContainer/StatusBars/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme = ExtResource("2_g6dqx")
+value = 100.0
+show_percentage = false
+
+[node name="InventoryContainer" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="InventoryContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="GridContainer" type="GridContainer" parent="InventoryContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 5
+
+[node name="RegenerationTimer" type="Timer" parent="."]

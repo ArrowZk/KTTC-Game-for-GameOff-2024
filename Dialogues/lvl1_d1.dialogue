@@ -1,0 +1,12 @@
+~ intro
+Mailman: Miss Elena, this is for you. Looks important.
+
+Open the door.
+do GLOBAL.can_walk = true
+=> END
+~ reading_letter
+Elena: Oh, a letter...
+???: "Dear Elena, I know it's been a long time, but your grandfather left something for you. It's quite unique and I think you should have it. Come to my shop when you can. - Caspian."
+Elena: What could my grandfather have left me? He was always so secretive...
+do get_tree().change_scene_to_file("res://scenes/gui/LevelEnd.tscn")
+=> END

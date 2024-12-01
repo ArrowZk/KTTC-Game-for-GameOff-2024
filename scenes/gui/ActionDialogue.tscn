@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://do8r2eqvub06b"]
+
+[ext_resource type="Script" path="res://scripts/action_dialogue.gd" id="1_yomap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvfwt"]
+size = Vector2(66, 72)
+
+[node name="ActionDialogue" type="Area2D"]
+collision_layer = 512
+script = ExtResource("1_yomap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uvfwt")
+debug_color = Color(0.657778, 0.515839, 1.92523e-07, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,58 @@
+~ jump
+do GLOBAL.can_walk = false
+do GLOBAL.dont_move = true
+Press spacebar to jump.
+do GLOBAL.dont_move = false
+do GLOBAL.can_walk = true
+do GLOBAL.can_jump = true
+=> END
+~ open_door
+Press X to interact and open door.
+=> END
+~ climb_ladder
+do GLOBAL.can_walk = false
+do GLOBAL.dont_move = true
+do GLOBAL.can_jump = false
+Press arrow keys up and down to climb a ladder.
+do GLOBAL.dont_move = false
+do GLOBAL.can_walk = true
+do GLOBAL.can_jump = true
+=> END
+~ sprint
+do GLOBAL.can_walk = false
+do GLOBAL.dont_move = true
+do GLOBAL.can_jump = false
+Keep shift pressed while moving to run or jump higher.
+If you're hanging on an edge, press spacebar to climb it.
+do GLOBAL.dont_move = false
+do GLOBAL.can_walk = true
+do GLOBAL.can_jump = true
+do GLOBAL.can_run = true
+=> END
+~ move_boxes
+do GLOBAL.can_walk = false
+do GLOBAL.can_jump = false
+do GLOBAL.can_run = false
+Keep interaction key (X) pressed on the side of the box to move it.
+do GLOBAL.can_move_boxes = true
+do GLOBAL.can_walk = true
+do GLOBAL.can_jump = true
+do GLOBAL.can_run = true
+=> END
+~ wall_slide
+do GLOBAL.can_walk = false
+do GLOBAL.can_jump = false
+do GLOBAL.can_run = false
+Move against the wall to wall slide.
+You can also jump on the wall.
+But careful with the stamina...
+do GLOBAL.can_walk = true
+do GLOBAL.can_jump = true
+do GLOBAL.can_run = true
+=> END
+~ change_dimensions
+Press "C" to change dimensions.
+=> END
+~ attack
+Press "Z" to attack.
+=> END

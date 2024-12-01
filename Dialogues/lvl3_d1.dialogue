@@ -1,0 +1,17 @@
+~ intro
+Elena: Hi, Grandpa. Caspian gave me something of yours... a watch. What were you planning?
+do GLOBAL.force_change = true
+Elena: Wait!!
+Elena: What is this!? I just pressed the button.
+=> END
+~ thougth
+Elena: I must see everything between this two wordls..
+=> END
+~ agent
+Elena: Who are they?
+Elena: Are they looking for somethink related to my grandpa?
+=> END
+~ outro
+Elena: What is happening?....
+do get_tree().change_scene_to_file("res://scenes/gui/GameEnd.tscn")
+=> END

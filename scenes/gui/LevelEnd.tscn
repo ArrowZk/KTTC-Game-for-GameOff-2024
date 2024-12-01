@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://c30qdwmjv3owl"]
+
+[ext_resource type="Script" path="res://scripts/level_end.gd" id="1_y2deb"]
+[ext_resource type="Theme" uid="uid://f1j8x4xbp5xn" path="res://themes/new_theme.tres" id="2_uxq64"]
+
+[node name="LevelEnd" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y2deb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00784314, 0.168627, 0.227451, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -11.5
+offset_right = 87.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_uxq64")
+theme_override_colors/font_color = Color(0.607843, 0.709804, 0.811765, 1)
+theme_override_colors/font_outline_color = Color(0.882353, 0.898039, 0.94902, 1)
+theme_override_font_sizes/font_size = 50
+text = "aaaaa"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_uxq64")
+
+[node name="Next" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_uxq64")
+text = "Next Level"
+
+[node name="Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_uxq64")
+text = "Main Menu"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
